@@ -1,0 +1,302 @@
+---
+title: "Maestria en Modelizacion Matemática y computación - IMCA"
+subtitle: "Estadistica inferecial y analisis de datos"
+author:
+  - name: "Alexander Villegas Zúñiga"
+    email: "alexandervillegaszuniga@gmail.com"
+date: "2024-03-22"
+output:
+  rmdformats::readthedown:
+    self_contained: false
+---
+# Tarea 8
+
+## Problema 1
+
+Bajar el archivo Clase_8.R
+```{r}
+cat("ok")
+```
+## Problema 2
+
+Con los datos de Iris, correr la clasificación k-means con 3 grupos.
+```{r}
+set.seed(123)
+setwd("D:/accesos rapidos/Documentos/R/Clase VIII")
+iris <-read.table(
+          file = "Iris.csv",
+          header = T,
+          sep = ",",
+          dec = ".",
+          stringsAsFactors = F
+)  #importamos el .csv
+#cl <- kmeans(iris[,1:4],3 , nstart = 10,trace = FALSE)  # un 10 recorridos 
+#saveRDS(cl, "modelo1.rds")# Guardar modelo
+(cl <- readRDS("modelo1.rds"))# Cargar modelo
+plot(iris[,1:4], col = cl$cluster, pch=20, cex=.5,main="solo 10 recorridos")  # plot    
+points(cl$centers, col = 1:5, pch = 8) 
+```
+
+
+## Problema 3 <br>
+
+¿Se corresponde a la clasificación en tres especies? Cuales flores están mal clasificados?
+```{r}
+cluster <-factor(cl$cluster, labels = c("setosa","virginica","versicolor"), levels = 3:1)
+log <- iris[!cluster == iris[[5]],]
+nrow(log)
+iris_test <- cbind(iris,cluster)
+```
+hay `r nrow(log)` flores que estan mal clasificados las cuales son 
+```{r}
+log
+```
+
+## Problema 4
+
+Calcular la razón de correlación y su tabla de “breakdown” sobre los tres grupos resultantes de la clasificación.
+```{r}
+iris_test$Species <- NULL
+names(iris_test)[[5]] <- "Species"
+```
+Creamos una funcion que calcule la tabla de breakdown de la tarea pasada
+```{r}
+breakdown <- function(dato_cuantitativo,dato_cualitativo){
+  
+  #Estadisticas descriptivas
+  n <- length(dato_cuantitativo)
+  m <- mean(dato_cuantitativo)
+  v <- var(dato_cuantitativo)*(n-1)/n
+  s <- sqrt(v)
+  cvt <- s/m
+  total <- rbind(n,m,v,s,cvt)
+  
+  #Tabla de promedios
+  n_unit <- table(dato_cualitativo)
+  mean <- tapply(dato_cuantitativo,dato_cualitativo,mean)
+  var <-  tapply(dato_cuantitativo,dato_cualitativo,var)
+  stdev <- sqrt(var)
+  cv <- stdev/mean
+  brk <- rbind(n_unit,mean,var,stdev,cv)
+  
+  
+  #Uniendo ambas tablas
+  brtot <- cbind(brk,total)
+  colnames(brtot) <- c(colnames(brk),"Total")
+
+  #Razon de correlacion empirica
+  e <- sum(n_unit*(mean-m)^2)/(n*v)
+  res <- list(brtot,e)
+  names(res) <- c("Tabla Breakdown","razon de correlacion empirica")
+  return(res)
+}
+breakdown(iris_test$Sepal.length,iris_test$Species)
+```
+Creamos una funcion final
+```{r}
+break_total <- function(iris_test,corr=FALSE){
+n <- as.numeric(ncol(iris_test)-1)
+if (corr==TRUE){
+vector_corr <- c()
+for (i in 1:n){
+          vector_corr[i] <- breakdown(iris_test[[i]],iris_test[[n+1]])$"razon de correlacion empirica"[[1]]
+}
+names(vector_corr) <- colnames(iris_test[1:n])
+cat("La razon de correlacion que se distingue mas es",max(vector_corr),"de la variable",names(which.max(vector_corr)),"\n")
+cat("Vector de correlacion: \n")
+return(vector_corr)
+}
+else{
+lista_estadistica <- list()
+for (i in 1:n){
+          lista_estadistica[[i]] <- breakdown(iris_test[[i]],iris_test[[n+1]])$"Tabla Breakdown"
+}
+names(lista_estadistica) <- colnames(iris_test[,1:n])
+cat("La tabla breakdown por columna es \n")
+return(lista_estadistica)
+}
+}
+```
+La tabla breakdown es
+```{r}
+breakdown(iris[,1],iris[[5]])
+```
+La tabla de correlacion es
+```{r}
+break_total(iris_test)
+```
+
+## Problema 5
+
+Aplicando el K-means entre 1 y 10 clases, ¿cual parece la partición mejor?<br>
+Creamos una funcion
+```{r}
+Kmeans_mult <- function(dat,maxcl,start,detallado=FALSE)  { 
+n                  <- dim(dat)[1]                                               # número filas
+p                  <- dim(dat)[2]                                               # número columnas
+wss                <- rep(0,maxcl)                                              # within ss
+wssd               <- wss                                                       # derivada 1 
+wssd2              <- wss                                                       # derivada 2
+CH                 <- wss                                                       # Calinski
+ast                <- rep("",maxcl)                                             # máximos
+wss[1]             <- (nrow(dat)-1)*sum(apply(dat,2,var))                       # SS inicial
+mejores            <- list()                                                    # Ponemos en una lista las mejores particiones
+# Se corre una kmeans por cada partición 5 veces y se elige la mejor
+for (i in 1:maxcl) {                                                            # iteración
+          mejores[i] <- list(kmeans(dat,centers=i,nstart=start)$cluster)
+          wss[i] <- sum(kmeans(dat,centers=i,nstart=start)$withinss)            # wss
+          if (i>1) {
+                    wssd[i] <- wss[i-1]-wss[i]                                 # derivada
+                    wssd2[i-1] <- wssd[i-1]-wssd[i]                            # 2 derivada
+                    CH[i] <- ((wss[1] - wss[i])/(i-1))/(wss[i]/(n-i))          # Calinski
+          }
+}
+for (i in 2:(maxcl-1)) {                                                        # detect
+          if ((CH[i] > CH[i-1]) & (CH[i] > CH[i+1])) {                          # local 
+                    ast[i] <- "*"                                               # maxima  
+          }
+}
+index              <- data.frame(round(cbind(wss,wssd,wssd2,CH),5),ast)         # tabla
+rownames(index)    <- c(1:maxcl)                                                # n clases 
+colnames(index)    <- c("SSW","D","D2","CH","max")                              # nombres columnas
+#################################################### graficos
+par(mar=c(5, 4, 4, 4)+.1)
+plot(1:maxcl, index[,1], type="l", xlab="Number of Clusters",                   # gráfico 
+     ylab="Within groups sum of squares", main = "K-means inertia variation")
+lines(1:maxcl, index[,2],col="blue")
+lines(1:maxcl, index[,3],col="green")
+legend("topright",legend=c("Within sum of squares","Differences",
+                           "Second differences","Calinski index"),
+       col=c("black","blue","green","red"),lty=1,cex=0.75)
+par(new = TRUE)
+plot(1:maxcl, CH, type = "l", axes = FALSE, bty = "n", xlab = "", 
+     ylab = "",col="red",ylim=c(range(CH)*1.5))
+text(1:maxcl,CH, labels=ast,pos=3,col="red",cex=0.75,offset=0.01) # para poner viñetas encima de los maximos
+axis(side=4, at = pretty(range(CH))) # indices a la derecha
+mtext("Calinski-Harabász Index", side=4, line=3) #nombre de calinski - harabaz
+par(mar=c(5, 4, 4, 2)+.1)
+if(detallado == TRUE)
+{
+ return(mejores[index$max=="*"])         
+}
+ return(index)
+}
+
+```
+Aplicando la funcion a la data para hallar los mejores del 1 al 10 
+```{r}
+Kmeans_mult(iris[,1:4],10,10)
+```
+Hallando el detallado
+```{r}
+Kmeans_mult(iris[,1:4],10,10,detallado = TRUE)
+```
+## Problema 6
+
+Estandarizar los datos de Iris, empleando el comando scale(X, center=TRUE,scale=TRUE), con X el archivo Iris, 
+limitadamente a las cuatro mediciones, y re-correr el k-means.
+```{r}
+iris[,1:4] <- scale(iris[,1:4], center=TRUE,scale=TRUE)
+#cl2 <- kmeans(iris[,1:4],3 , nstart = 10,trace = FALSE)  # un 10 recorridos 
+#saveRDS(cl2, "modelo2.rds")# Guardar modelo
+(cl2 <- readRDS("modelo2.rds"))# Cargar modelo
+plot(iris[,1:4], col = cl$cluster, pch=20, cex=.5,main="solo 10 recorridos")  # plot    
+points(cl2$centers, col = 1:5, pch = 8)
+```
+
+## Problema 7
+
+¿Se encuentran resultados mejores o peores? (para el breakdown, solo emplear la clasificación salida,
+pero siempre las mediciones de Iris).
+```{r}
+cluster <-factor(cl2$cluster, labels = c("setosa","virginica","versicolor"), levels = c(2,1,3))
+log <- iris[!cluster == iris[[5]],]
+nrow(log)
+iris_test <- cbind(iris[,1:4],cluster)
+```
+Hay `r nrow(log)` flores que estan mal clasificadas lo cual ha empeorado relativamente poco <br>
+tabla breakdown
+```{r}
+break_total(iris_test)
+```
+
+
+## Problema 8
+
+Hacer lo mismo con datos de Linnerud, pero intentando diferentes clasificaciones y el índice CH, 
+tanto para los datos brutos, como para los estandarizados.<br>
+Importamos la data
+```{r}
+linne <-  read.table(
+          file = "Linnerud.csv",
+          header = T,
+          sep = ",",
+          dec = ".",
+          stringsAsFactors = F,
+          row.names = 1
+); summary(linne) #importamos el .csv
+linne$fisico <- numeric(nrow(linne))
+linne_std <- scale(linne[,1:6],center=TRUE,scale=TRUE); summary(linne_std)
+linne_std <- as.data.frame(linne_std)
+linne_std$fisico <- numeric(nrow(linne))
+```
+haciendo clasificaciones
+```{r}
+dim(linne)[1]
+Kmeans_mult(linne,5,10)
+```
+Vemos que para 4 tiene una mejor clasificacion, como hay poca informacion en la data los indices de Calinski son bajo, Veamos como se ve esta clasificacion
+```{r}
+#cl3 <- Kmeans_mult(linne,5,10,detallado = TRUE)  # un 10 recorridos 
+#saveRDS(cl3, "modelo3.rds")# Guardar modelo
+(cl3 <- readRDS("modelo3.rds"))# Cargar modelo
+linne <- cbind(linne[,1:6],cl3)
+names(linne)[7] <- "Fisico"
+linne
+table(linne$Fisico)
+linne$Fisico <- factor(linne$Fisico,labels = c("muy sobresaliente","bajo rendimiento","alto rendimiento","regular"), levels = c(3,1,2,4))
+plot(linne[,1:6], col = linne$Fisico, pch=20, cex=.5,main="solo 10 recorridos")  # plot    
+```
+tabla breakdown
+```{r}
+break_total(linne)
+```
+Hagamos lo mismo pero con la data estandarizada <br>
+```{r}
+linne_std
+```
+
+haciendo clasificaciones
+```{r}
+dim(linne_std)[1]
+Kmeans_mult(linne_std[,1:6],5,10)
+```
+Vemos que con dos clasificaciones tiene buen agrupamiento
+```{r}
+#cl4 <- Kmeans_mult(linne_std[,1:6],5,10,detallado = TRUE)  # un 20 recorridos 
+#saveRDS(cl4, "modelo4.rds")# Guardar modelo
+(cl4 <- readRDS("modelo4.rds"))# Cargar modelo
+linne_std <- cbind(linne[,1:6],cl4)
+names(linne_std)[7] <- "fisico"
+linne_std
+```
+Dandole forma a la data
+```{r}
+linne_std$fisico <- factor(linne_std$fisico,labels = c("bajo_rendimiento","alto_rendimiento"), levels = 1:2)
+linne_std
+plot(linne_std[,1:6], col = linne_std$fisico, pch=20, cex=.5,main="solo 10 recorridos")  # plot 
+```
+Haciendo una tabla breakdown
+```{r}
+break_total(linne_std)
+```
+
+
+## Problema 9
+¿Cual clasificación le parece mejor?
+```{r}
+break_total(linne_std)
+break_total(linne)
+(linne_comparacion <- cbind(linne,linne_std$fisico))
+```
+Ligeramente mejor es estandarizado 

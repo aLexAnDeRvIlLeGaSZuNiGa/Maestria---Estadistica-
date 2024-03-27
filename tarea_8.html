@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="pandoc" />
+
+    
+        <meta name="date" content="2024-03-22" />
+    
+    <title>Maestria en Modelizacion Matemática y computación - IMCA</title>
+
+        <script src="tarea_8_files/header-attrs-2.25/header-attrs.js"></script>
+        <script src="tarea_8_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="tarea_8_files/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="tarea_8_files/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+        <script src="tarea_8_files/navigation-1.1/tabsets.js"></script>
+        <link href="tarea_8_files/readthedown-0.1/readthedown.css" rel="stylesheet" />
+        <link href="tarea_8_files/readthedown-0.1/readthedown_fonts_embed.css" rel="stylesheet" />
+        <script src="tarea_8_files/readthedown-0.1/readthedown.js"></script>
+    
+    
+        <style type="text/css">code{white-space: pre;}</style>
+    <style type="text/css">
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          background-color: #ffffff;
+          color: #a0a0a0;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+      div.sourceCode
+        { color: #1f1c1b; background-color: #ffffff; }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      code span { color: #1f1c1b; } /* Normal */
+      code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+      code span.an { color: #ca60ca; } /* Annotation */
+      code span.at { color: #0057ae; } /* Attribute */
+      code span.bn { color: #b08000; } /* BaseN */
+      code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+      code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #924c9d; } /* Char */
+      code span.cn { color: #aa5500; } /* Constant */
+      code span.co { color: #898887; } /* Comment */
+      code span.cv { color: #0095ff; } /* CommentVar */
+      code span.do { color: #607880; } /* Documentation */
+      code span.dt { color: #0057ae; } /* DataType */
+      code span.dv { color: #b08000; } /* DecVal */
+      code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+      code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+      code span.fl { color: #b08000; } /* Float */
+      code span.fu { color: #644a9b; } /* Function */
+      code span.im { color: #ff5500; } /* Import */
+      code span.in { color: #b08000; } /* Information */
+      code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+      code span.op { color: #1f1c1b; } /* Operator */
+      code span.ot { color: #006e28; } /* Other */
+      code span.pp { color: #006e28; } /* Preprocessor */
+      code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+      code span.sc { color: #3daee9; } /* SpecialChar */
+      code span.ss { color: #ff5500; } /* SpecialString */
+      code span.st { color: #bf0303; } /* String */
+      code span.va { color: #0057ae; } /* Variable */
+      code span.vs { color: #bf0303; } /* VerbatimString */
+      code span.wa { color: #bf0303; } /* Warning */
+    </style>
+    
+    
+    <!-- tabsets -->
+    <script>
+      $(document).ready(function () {
+	  window.buildTabsets("toc");
+      });
+      $(document).ready(function () {
+	  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+	      $(this).parent().toggleClass('nav-tabs-open')
+	  });
+      });
+    </script>
+
+    <!-- code folding -->
+    
+    <!-- code download -->
+    
+    <!-- tabsets dropdown -->
+
+    <style type="text/css">
+      .tabset-dropdown > .nav-tabs {
+	  display: inline-table;
+	  max-height: 500px;
+	  min-height: 44px;
+	  overflow-y: auto;
+	  background: white;
+	  border: 1px solid #ddd;
+	  border-radius: 4px;
+      }
+      
+      .tabset-dropdown > .nav-tabs > li.active:before {
+	  content: "";
+	  font-family: 'Glyphicons Halflings';
+	  display: inline-block;
+	  padding: 10px;
+	  border-right: 1px solid #ddd;
+      }
+      
+      .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+	  content: "&#xe258;";
+	  border: none;
+      }
+      
+      .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+	  content: "";
+	  font-family: 'Glyphicons Halflings';
+	  display: inline-block;
+	  padding: 10px;
+	  border-right: 1px solid #ddd;
+      }
+      
+      .tabset-dropdown > .nav-tabs > li.active {
+	  display: block;
+      }
+
+      .tabset-dropdown > .nav-tabs > li.active a {
+  	  padding: 0 15px !important;
+      }
+
+      .tabset-dropdown > .nav-tabs > li > a,
+      .tabset-dropdown > .nav-tabs > li > a:focus,
+      .tabset-dropdown > .nav-tabs > li > a:hover {
+	  border: none;
+	  display: inline-block;
+	  border-radius: 4px;
+	  background-color: transparent;
+      }
+      
+      .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+	  display: block;
+	  float: none;
+      }
+      
+      .tabset-dropdown > .nav-tabs > li {
+	  display: none;
+	  margin-left: 0 !important;
+      }
+    </style>
+    
+</head>
+
+<body class="preload">
+
+   	
+         <!-- readthedown start -->   
+   <div id="content" data-toggle="wy-nav-shift">
+     <nav id="nav-top" role="navigation" aria-label="top navigation">
+       <a role="button" href="#" data-toggle="wy-nav-top"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
+     </nav>
+         
+   
+        
+      <h1 class="title">Maestria en Modelizacion Matemática y
+computación - IMCA</h1>
+         <h1 class="subtitle">Estadistica inferecial y analisis de
+datos</h1>
+   
+         <!-- readthedown authors -->
+   <div id="sidebar">
+    <h2><a href="#content">Maestria en Modelizacion Matemática y
+computación - IMCA</a></h2>
+    <div id="toc">
+      <ul>
+      <li><a href="#tarea-8" id="toc-tarea-8">Tarea 8</a>
+      <ul>
+      <li><a href="#problema-1" id="toc-problema-1">Problema 1</a></li>
+      <li><a href="#problema-2" id="toc-problema-2">Problema 2</a></li>
+      <li><a href="#problema-3" id="toc-problema-3">Problema 3
+      <br></a></li>
+      <li><a href="#problema-4" id="toc-problema-4">Problema 4</a></li>
+      <li><a href="#problema-5" id="toc-problema-5">Problema 5</a></li>
+      <li><a href="#problema-6" id="toc-problema-6">Problema 6</a></li>
+      <li><a href="#problema-7" id="toc-problema-7">Problema 7</a></li>
+      <li><a href="#problema-8" id="toc-problema-8">Problema 8</a></li>
+      <li><a href="#problema-9" id="toc-problema-9">Problema 9</a></li>
+      </ul></li>
+      </ul>
+    </div>
+    <div id="postamble" data-toggle="wy-nav-shift" class="status">
+                  <p class="author"><span class="glyphicon glyphicon-user"></span> Alexander
+Villegas Zúñiga
+			<br /><a class="author_email" href="mailto:#"><a
+href="mailto:alexandervillegaszuniga@gmail.com"
+class="email">alexandervillegaszuniga@gmail.com</a></a>
+	      </p>
+                        <p class="date"><span class="glyphicon glyphicon-calendar"></span> 2024-03-22</p>
+          </div>
+   </div>
+     
+
+   
+      
+   
+<!-- Don't indent these lines or it will mess pre blocks indentation --> 
+<div id="main">
+<div id="tarea-8" class="section level1">
+<h1>Tarea 8</h1>
+<div id="problema-1" class="section level2">
+<h2>Problema 1</h2>
+<p>Bajar el archivo Clase_8.R</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;ok&quot;</span>)</span></code></pre></div>
+<pre><code>## ok</code></pre>
+</div>
+<div id="problema-2" class="section level2">
+<h2>Problema 2</h2>
+<p>Con los datos de Iris, correr la clasificación k-means con 3
+grupos.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;D:/accesos rapidos/Documentos/R/Clase VIII&quot;</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>iris <span class="ot">&lt;-</span><span class="fu">read.table</span>(</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>          <span class="at">file =</span> <span class="st">&quot;Iris.csv&quot;</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>          <span class="at">header =</span> T,</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>          <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>          <span class="at">dec =</span> <span class="st">&quot;.&quot;</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>          <span class="at">stringsAsFactors =</span> F</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a>)  <span class="co">#importamos el .csv</span></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co">#cl &lt;- kmeans(iris[,1:4],3 , nstart = 10,trace = FALSE)  # un 10 recorridos </span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co">#saveRDS(cl, &quot;modelo1.rds&quot;)# Guardar modelo</span></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>(cl <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;modelo1.rds&quot;</span>))<span class="co"># Cargar modelo</span></span></code></pre></div>
+<pre><code>## K-means clustering with 3 clusters of sizes 38, 62, 50
+## 
+## Cluster means:
+##   Sepal.Length Sepal.Width Petal.Length Petal.Width
+## 1     6.850000    3.073684     5.742105    2.071053
+## 2     5.901613    2.748387     4.393548    1.433871
+## 3     5.006000    3.428000     1.462000    0.246000
+## 
+## Clustering vector:
+##   [1] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+##  [38] 3 3 3 3 3 3 3 3 3 3 3 3 3 2 2 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+##  [75] 2 2 2 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 1 2 1 1 1 1 2 1 1 1 1
+## [112] 1 1 2 2 1 1 1 1 2 1 2 1 2 1 1 2 2 1 1 1 1 1 2 1 1 1 1 2 1 1 1 2 1 1 1 2 1
+## [149] 1 2
+## 
+## Within cluster sum of squares by cluster:
+## [1] 23.87947 39.82097 15.15100
+##  (between_SS / total_SS =  88.4 %)
+## 
+## Available components:
+## 
+## [1] &quot;cluster&quot;      &quot;centers&quot;      &quot;totss&quot;        &quot;withinss&quot;     &quot;tot.withinss&quot;
+## [6] &quot;betweenss&quot;    &quot;size&quot;         &quot;iter&quot;         &quot;ifault&quot;</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">plot</span>(iris[,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>], <span class="at">col =</span> cl<span class="sc">$</span>cluster, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">cex=</span>.<span class="dv">5</span>,<span class="at">main=</span><span class="st">&quot;solo 10 recorridos&quot;</span>)  <span class="co"># plot    </span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="fu">points</span>(cl<span class="sc">$</span>centers, <span class="at">col =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">pch =</span> <span class="dv">8</span>) </span></code></pre></div>
+<p><img src="tarea_8_files/figure-html/unnamed-chunk-2-1.png" width="768" /></p>
+</div>
+<div id="problema-3" class="section level2">
+<h2>Problema 3 <br></h2>
+<p>¿Se corresponde a la clasificación en tres especies? Cuales flores
+están mal clasificados?</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>cluster <span class="ot">&lt;-</span><span class="fu">factor</span>(cl<span class="sc">$</span>cluster, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;setosa&quot;</span>,<span class="st">&quot;virginica&quot;</span>,<span class="st">&quot;versicolor&quot;</span>), <span class="at">levels =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">1</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>log <span class="ot">&lt;-</span> iris[<span class="sc">!</span>cluster <span class="sc">==</span> iris[[<span class="dv">5</span>]],]</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="fu">nrow</span>(log)</span></code></pre></div>
+<pre><code>## [1] 16</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>iris_test <span class="ot">&lt;-</span> <span class="fu">cbind</span>(iris,cluster)</span></code></pre></div>
+<p>hay 16 flores que estan mal clasificados las cuales son</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>log</span></code></pre></div>
+<pre><code>##     Sepal.length Sepal.width Petal.length Petal.width    Species
+## 53           7.1         3.0          5.9         2.1  virginica
+## 78           6.1         3.0          4.9         1.8  virginica
+## 102          6.4         3.2          4.5         1.5 versicolor
+## 107          6.3         3.3          4.7         1.6 versicolor
+## 114          6.1         2.9          4.7         1.4 versicolor
+## 115          5.6         2.9          3.6         1.3 versicolor
+## 120          5.6         2.5          3.9         1.1 versicolor
+## 122          6.1         2.8          4.0         1.3 versicolor
+## 124          6.1         2.8          4.7         1.2 versicolor
+## 127          6.8         2.8          4.8         1.4 versicolor
+## 128          6.7         3.0          5.0         1.7 versicolor
+## 134          6.0         2.7          5.1         1.6 versicolor
+## 139          5.6         3.0          4.1         1.3 versicolor
+## 143          5.8         2.6          4.0         1.2 versicolor
+## 147          5.7         2.9          4.2         1.3 versicolor
+## 150          5.7         2.8          4.1         1.3 versicolor</code></pre>
+</div>
+<div id="problema-4" class="section level2">
+<h2>Problema 4</h2>
+<p>Calcular la razón de correlación y su tabla de “breakdown” sobre los
+tres grupos resultantes de la clasificación.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>iris_test<span class="sc">$</span>Species <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="fu">names</span>(iris_test)[[<span class="dv">5</span>]] <span class="ot">&lt;-</span> <span class="st">&quot;Species&quot;</span></span></code></pre></div>
+<p>Creamos una funcion que calcule la tabla de breakdown de la tarea
+pasada</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>breakdown <span class="ot">&lt;-</span> <span class="cf">function</span>(dato_cuantitativo,dato_cualitativo){</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>  </span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>  <span class="co">#Estadisticas descriptivas</span></span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(dato_cuantitativo)</span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a>  m <span class="ot">&lt;-</span> <span class="fu">mean</span>(dato_cuantitativo)</span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a>  v <span class="ot">&lt;-</span> <span class="fu">var</span>(dato_cuantitativo)<span class="sc">*</span>(n<span class="dv">-1</span>)<span class="sc">/</span>n</span>
+<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a>  s <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(v)</span>
+<span id="cb12-8"><a href="#cb12-8" tabindex="-1"></a>  cvt <span class="ot">&lt;-</span> s<span class="sc">/</span>m</span>
+<span id="cb12-9"><a href="#cb12-9" tabindex="-1"></a>  total <span class="ot">&lt;-</span> <span class="fu">rbind</span>(n,m,v,s,cvt)</span>
+<span id="cb12-10"><a href="#cb12-10" tabindex="-1"></a>  </span>
+<span id="cb12-11"><a href="#cb12-11" tabindex="-1"></a>  <span class="co">#Tabla de promedios</span></span>
+<span id="cb12-12"><a href="#cb12-12" tabindex="-1"></a>  n_unit <span class="ot">&lt;-</span> <span class="fu">table</span>(dato_cualitativo)</span>
+<span id="cb12-13"><a href="#cb12-13" tabindex="-1"></a>  mean <span class="ot">&lt;-</span> <span class="fu">tapply</span>(dato_cuantitativo,dato_cualitativo,mean)</span>
+<span id="cb12-14"><a href="#cb12-14" tabindex="-1"></a>  var <span class="ot">&lt;-</span>  <span class="fu">tapply</span>(dato_cuantitativo,dato_cualitativo,var)</span>
+<span id="cb12-15"><a href="#cb12-15" tabindex="-1"></a>  stdev <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(var)</span>
+<span id="cb12-16"><a href="#cb12-16" tabindex="-1"></a>  cv <span class="ot">&lt;-</span> stdev<span class="sc">/</span>mean</span>
+<span id="cb12-17"><a href="#cb12-17" tabindex="-1"></a>  brk <span class="ot">&lt;-</span> <span class="fu">rbind</span>(n_unit,mean,var,stdev,cv)</span>
+<span id="cb12-18"><a href="#cb12-18" tabindex="-1"></a>  </span>
+<span id="cb12-19"><a href="#cb12-19" tabindex="-1"></a>  </span>
+<span id="cb12-20"><a href="#cb12-20" tabindex="-1"></a>  <span class="co">#Uniendo ambas tablas</span></span>
+<span id="cb12-21"><a href="#cb12-21" tabindex="-1"></a>  brtot <span class="ot">&lt;-</span> <span class="fu">cbind</span>(brk,total)</span>
+<span id="cb12-22"><a href="#cb12-22" tabindex="-1"></a>  <span class="fu">colnames</span>(brtot) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">colnames</span>(brk),<span class="st">&quot;Total&quot;</span>)</span>
+<span id="cb12-23"><a href="#cb12-23" tabindex="-1"></a></span>
+<span id="cb12-24"><a href="#cb12-24" tabindex="-1"></a>  <span class="co">#Razon de correlacion empirica</span></span>
+<span id="cb12-25"><a href="#cb12-25" tabindex="-1"></a>  e <span class="ot">&lt;-</span> <span class="fu">sum</span>(n_unit<span class="sc">*</span>(mean<span class="sc">-</span>m)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(n<span class="sc">*</span>v)</span>
+<span id="cb12-26"><a href="#cb12-26" tabindex="-1"></a>  res <span class="ot">&lt;-</span> <span class="fu">list</span>(brtot,e)</span>
+<span id="cb12-27"><a href="#cb12-27" tabindex="-1"></a>  <span class="fu">names</span>(res) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Tabla Breakdown&quot;</span>,<span class="st">&quot;razon de correlacion empirica&quot;</span>)</span>
+<span id="cb12-28"><a href="#cb12-28" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
+<span id="cb12-29"><a href="#cb12-29" tabindex="-1"></a>}</span>
+<span id="cb12-30"><a href="#cb12-30" tabindex="-1"></a><span class="fu">breakdown</span>(iris_test<span class="sc">$</span>Sepal.length,iris_test<span class="sc">$</span>Species)</span></code></pre></div>
+<pre><code>## $`Tabla Breakdown`
+##             setosa   virginica  versicolor       Total
+## n_unit 50.00000000 62.00000000 38.00000000 150.0000000
+## mean    5.00600000  6.46290323  5.93421053   5.8433333
+## var     0.12424898  0.40499471  0.32987909   0.6811222
+## stdev   0.35248969  0.63639195  0.57435102   0.8253013
+## cv      0.07041344  0.09846843  0.09678642   0.1412381
+## 
+## $`razon de correlacion empirica`
+## [1] 0.5791416</code></pre>
+<p>Creamos una funcion final</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>break_total <span class="ot">&lt;-</span> <span class="cf">function</span>(iris_test,<span class="at">corr=</span><span class="cn">FALSE</span>){</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">ncol</span>(iris_test)<span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="cf">if</span> (corr<span class="sc">==</span><span class="cn">TRUE</span>){</span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>vector_corr <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n){</span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a>          vector_corr[i] <span class="ot">&lt;-</span> <span class="fu">breakdown</span>(iris_test[[i]],iris_test[[n<span class="sc">+</span><span class="dv">1</span>]])<span class="sc">$</span><span class="st">&quot;razon de correlacion empirica&quot;</span>[[<span class="dv">1</span>]]</span>
+<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a>}</span>
+<span id="cb14-8"><a href="#cb14-8" tabindex="-1"></a><span class="fu">names</span>(vector_corr) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(iris_test[<span class="dv">1</span><span class="sc">:</span>n])</span>
+<span id="cb14-9"><a href="#cb14-9" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;La razon de correlacion que se distingue mas es&quot;</span>,<span class="fu">max</span>(vector_corr),<span class="st">&quot;de la variable&quot;</span>,<span class="fu">names</span>(<span class="fu">which.max</span>(vector_corr)),<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb14-10"><a href="#cb14-10" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Vector de correlacion: </span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb14-11"><a href="#cb14-11" tabindex="-1"></a><span class="fu">return</span>(vector_corr)</span>
+<span id="cb14-12"><a href="#cb14-12" tabindex="-1"></a>}</span>
+<span id="cb14-13"><a href="#cb14-13" tabindex="-1"></a><span class="cf">else</span>{</span>
+<span id="cb14-14"><a href="#cb14-14" tabindex="-1"></a>lista_estadistica <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb14-15"><a href="#cb14-15" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n){</span>
+<span id="cb14-16"><a href="#cb14-16" tabindex="-1"></a>          lista_estadistica[[i]] <span class="ot">&lt;-</span> <span class="fu">breakdown</span>(iris_test[[i]],iris_test[[n<span class="sc">+</span><span class="dv">1</span>]])<span class="sc">$</span><span class="st">&quot;Tabla Breakdown&quot;</span></span>
+<span id="cb14-17"><a href="#cb14-17" tabindex="-1"></a>}</span>
+<span id="cb14-18"><a href="#cb14-18" tabindex="-1"></a><span class="fu">names</span>(lista_estadistica) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(iris_test[,<span class="dv">1</span><span class="sc">:</span>n])</span>
+<span id="cb14-19"><a href="#cb14-19" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;La tabla breakdown por columna es </span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb14-20"><a href="#cb14-20" tabindex="-1"></a><span class="fu">return</span>(lista_estadistica)</span>
+<span id="cb14-21"><a href="#cb14-21" tabindex="-1"></a>}</span>
+<span id="cb14-22"><a href="#cb14-22" tabindex="-1"></a>}</span></code></pre></div>
+<p>La tabla breakdown es</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="fu">breakdown</span>(iris[,<span class="dv">1</span>],iris[[<span class="dv">5</span>]])</span></code></pre></div>
+<pre><code>## $`Tabla Breakdown`
+##             setosa  versicolor   virginica       Total
+## n_unit 50.00000000 50.00000000 50.00000000 150.0000000
+## mean    5.00600000  5.93600000  6.58800000   5.8433333
+## var     0.12424898  0.26643265  0.40434286   0.6811222
+## stdev   0.35248969  0.51617115  0.63587959   0.8253013
+## cv      0.07041344  0.08695606  0.09652089   0.1412381
+## 
+## $`razon de correlacion empirica`
+## [1] 0.6187057</code></pre>
+<p>La tabla de correlacion es</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="fu">break_total</span>(iris_test)</span></code></pre></div>
+<pre><code>## La tabla breakdown por columna es</code></pre>
+<pre><code>## $Sepal.length
+##             setosa   virginica  versicolor       Total
+## n_unit 50.00000000 62.00000000 38.00000000 150.0000000
+## mean    5.00600000  6.46290323  5.93421053   5.8433333
+## var     0.12424898  0.40499471  0.32987909   0.6811222
+## stdev   0.35248969  0.63639195  0.57435102   0.8253013
+## cv      0.07041344  0.09846843  0.09678642   0.1412381
+## 
+## $Sepal.width
+##            setosa  virginica versicolor       Total
+## n_unit 50.0000000 62.0000000 38.0000000 150.0000000
+## mean    3.4280000  2.9500000  2.7447368   3.0573333
+## var     0.1436898  0.0950000  0.1128094   0.1887129
+## stdev   0.3790644  0.3082207  0.3358711   0.4344110
+## cv      0.1105789  0.1044816  0.1223691   0.1420882
+## 
+## $Petal.length
+##             setosa  virginica versicolor       Total
+## n_unit 50.00000000 62.0000000 38.0000000 150.0000000
+## mean    1.46200000  5.2935484  4.2736842   3.7580000
+## var     0.03015918  0.5245479  0.2965861   3.0955027
+## stdev   0.17366400  0.7242568  0.5445972   1.7594041
+## cv      0.11878522  0.1368188  0.1274304   0.4681756
+## 
+## $Petal.width
+##             setosa  virginica  versicolor       Total
+## n_unit 50.00000000 62.0000000 38.00000000 150.0000000
+## mean    0.24600000  1.8806452  1.34210526   1.1993333
+## var     0.01110612  0.1428979  0.06250356   0.5771329
+## stdev   0.10538559  0.3780184  0.25000711   0.7596926
+## cv      0.42839670  0.2010047  0.18627981   0.6334291</code></pre>
+</div>
+<div id="problema-5" class="section level2">
+<h2>Problema 5</h2>
+<p>Aplicando el K-means entre 1 y 10 clases, ¿cual parece la partición
+mejor?<br> Creamos una funcion</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a>Kmeans_mult <span class="ot">&lt;-</span> <span class="cf">function</span>(dat,maxcl,start,<span class="at">detallado=</span><span class="cn">FALSE</span>)  { </span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a>n                  <span class="ot">&lt;-</span> <span class="fu">dim</span>(dat)[<span class="dv">1</span>]                                               <span class="co"># número filas</span></span>
+<span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a>p                  <span class="ot">&lt;-</span> <span class="fu">dim</span>(dat)[<span class="dv">2</span>]                                               <span class="co"># número columnas</span></span>
+<span id="cb20-4"><a href="#cb20-4" tabindex="-1"></a>wss                <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>,maxcl)                                              <span class="co"># within ss</span></span>
+<span id="cb20-5"><a href="#cb20-5" tabindex="-1"></a>wssd               <span class="ot">&lt;-</span> wss                                                       <span class="co"># derivada 1 </span></span>
+<span id="cb20-6"><a href="#cb20-6" tabindex="-1"></a>wssd2              <span class="ot">&lt;-</span> wss                                                       <span class="co"># derivada 2</span></span>
+<span id="cb20-7"><a href="#cb20-7" tabindex="-1"></a>CH                 <span class="ot">&lt;-</span> wss                                                       <span class="co"># Calinski</span></span>
+<span id="cb20-8"><a href="#cb20-8" tabindex="-1"></a>ast                <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="st">&quot;&quot;</span>,maxcl)                                             <span class="co"># máximos</span></span>
+<span id="cb20-9"><a href="#cb20-9" tabindex="-1"></a>wss[<span class="dv">1</span>]             <span class="ot">&lt;-</span> (<span class="fu">nrow</span>(dat)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="fu">sum</span>(<span class="fu">apply</span>(dat,<span class="dv">2</span>,var))                       <span class="co"># SS inicial</span></span>
+<span id="cb20-10"><a href="#cb20-10" tabindex="-1"></a>mejores            <span class="ot">&lt;-</span> <span class="fu">list</span>()                                                    <span class="co"># Ponemos en una lista las mejores particiones</span></span>
+<span id="cb20-11"><a href="#cb20-11" tabindex="-1"></a><span class="co"># Se corre una kmeans por cada partición 5 veces y se elige la mejor</span></span>
+<span id="cb20-12"><a href="#cb20-12" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>maxcl) {                                                            <span class="co"># iteración</span></span>
+<span id="cb20-13"><a href="#cb20-13" tabindex="-1"></a>          mejores[i] <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">kmeans</span>(dat,<span class="at">centers=</span>i,<span class="at">nstart=</span>start)<span class="sc">$</span>cluster)</span>
+<span id="cb20-14"><a href="#cb20-14" tabindex="-1"></a>          wss[i] <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">kmeans</span>(dat,<span class="at">centers=</span>i,<span class="at">nstart=</span>start)<span class="sc">$</span>withinss)            <span class="co"># wss</span></span>
+<span id="cb20-15"><a href="#cb20-15" tabindex="-1"></a>          <span class="cf">if</span> (i<span class="sc">&gt;</span><span class="dv">1</span>) {</span>
+<span id="cb20-16"><a href="#cb20-16" tabindex="-1"></a>                    wssd[i] <span class="ot">&lt;-</span> wss[i<span class="dv">-1</span>]<span class="sc">-</span>wss[i]                                 <span class="co"># derivada</span></span>
+<span id="cb20-17"><a href="#cb20-17" tabindex="-1"></a>                    wssd2[i<span class="dv">-1</span>] <span class="ot">&lt;-</span> wssd[i<span class="dv">-1</span>]<span class="sc">-</span>wssd[i]                            <span class="co"># 2 derivada</span></span>
+<span id="cb20-18"><a href="#cb20-18" tabindex="-1"></a>                    CH[i] <span class="ot">&lt;-</span> ((wss[<span class="dv">1</span>] <span class="sc">-</span> wss[i])<span class="sc">/</span>(i<span class="dv">-1</span>))<span class="sc">/</span>(wss[i]<span class="sc">/</span>(n<span class="sc">-</span>i))          <span class="co"># Calinski</span></span>
+<span id="cb20-19"><a href="#cb20-19" tabindex="-1"></a>          }</span>
+<span id="cb20-20"><a href="#cb20-20" tabindex="-1"></a>}</span>
+<span id="cb20-21"><a href="#cb20-21" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>(maxcl<span class="dv">-1</span>)) {                                                        <span class="co"># detect</span></span>
+<span id="cb20-22"><a href="#cb20-22" tabindex="-1"></a>          <span class="cf">if</span> ((CH[i] <span class="sc">&gt;</span> CH[i<span class="dv">-1</span>]) <span class="sc">&amp;</span> (CH[i] <span class="sc">&gt;</span> CH[i<span class="sc">+</span><span class="dv">1</span>])) {                          <span class="co"># local </span></span>
+<span id="cb20-23"><a href="#cb20-23" tabindex="-1"></a>                    ast[i] <span class="ot">&lt;-</span> <span class="st">&quot;*&quot;</span>                                               <span class="co"># maxima  </span></span>
+<span id="cb20-24"><a href="#cb20-24" tabindex="-1"></a>          }</span>
+<span id="cb20-25"><a href="#cb20-25" tabindex="-1"></a>}</span>
+<span id="cb20-26"><a href="#cb20-26" tabindex="-1"></a>index              <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">round</span>(<span class="fu">cbind</span>(wss,wssd,wssd2,CH),<span class="dv">5</span>),ast)         <span class="co"># tabla</span></span>
+<span id="cb20-27"><a href="#cb20-27" tabindex="-1"></a><span class="fu">rownames</span>(index)    <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span>maxcl)                                                <span class="co"># n clases </span></span>
+<span id="cb20-28"><a href="#cb20-28" tabindex="-1"></a><span class="fu">colnames</span>(index)    <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;SSW&quot;</span>,<span class="st">&quot;D&quot;</span>,<span class="st">&quot;D2&quot;</span>,<span class="st">&quot;CH&quot;</span>,<span class="st">&quot;max&quot;</span>)                              <span class="co"># nombres columnas</span></span>
+<span id="cb20-29"><a href="#cb20-29" tabindex="-1"></a><span class="do">#################################################### graficos</span></span>
+<span id="cb20-30"><a href="#cb20-30" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>)<span class="sc">+</span>.<span class="dv">1</span>)</span>
+<span id="cb20-31"><a href="#cb20-31" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span>maxcl, index[,<span class="dv">1</span>], <span class="at">type=</span><span class="st">&quot;l&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Number of Clusters&quot;</span>,                   <span class="co"># gráfico </span></span>
+<span id="cb20-32"><a href="#cb20-32" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Within groups sum of squares&quot;</span>, <span class="at">main =</span> <span class="st">&quot;K-means inertia variation&quot;</span>)</span>
+<span id="cb20-33"><a href="#cb20-33" tabindex="-1"></a><span class="fu">lines</span>(<span class="dv">1</span><span class="sc">:</span>maxcl, index[,<span class="dv">2</span>],<span class="at">col=</span><span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb20-34"><a href="#cb20-34" tabindex="-1"></a><span class="fu">lines</span>(<span class="dv">1</span><span class="sc">:</span>maxcl, index[,<span class="dv">3</span>],<span class="at">col=</span><span class="st">&quot;green&quot;</span>)</span>
+<span id="cb20-35"><a href="#cb20-35" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="at">legend=</span><span class="fu">c</span>(<span class="st">&quot;Within sum of squares&quot;</span>,<span class="st">&quot;Differences&quot;</span>,</span>
+<span id="cb20-36"><a href="#cb20-36" tabindex="-1"></a>                           <span class="st">&quot;Second differences&quot;</span>,<span class="st">&quot;Calinski index&quot;</span>),</span>
+<span id="cb20-37"><a href="#cb20-37" tabindex="-1"></a>       <span class="at">col=</span><span class="fu">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;green&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="at">lty=</span><span class="dv">1</span>,<span class="at">cex=</span><span class="fl">0.75</span>)</span>
+<span id="cb20-38"><a href="#cb20-38" tabindex="-1"></a><span class="fu">par</span>(<span class="at">new =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb20-39"><a href="#cb20-39" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span>maxcl, CH, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, </span>
+<span id="cb20-40"><a href="#cb20-40" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="fu">range</span>(CH)<span class="sc">*</span><span class="fl">1.5</span>))</span>
+<span id="cb20-41"><a href="#cb20-41" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">1</span><span class="sc">:</span>maxcl,CH, <span class="at">labels=</span>ast,<span class="at">pos=</span><span class="dv">3</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">cex=</span><span class="fl">0.75</span>,<span class="at">offset=</span><span class="fl">0.01</span>) <span class="co"># para poner viñetas encima de los maximos</span></span>
+<span id="cb20-42"><a href="#cb20-42" tabindex="-1"></a><span class="fu">axis</span>(<span class="at">side=</span><span class="dv">4</span>, <span class="at">at =</span> <span class="fu">pretty</span>(<span class="fu">range</span>(CH))) <span class="co"># indices a la derecha</span></span>
+<span id="cb20-43"><a href="#cb20-43" tabindex="-1"></a><span class="fu">mtext</span>(<span class="st">&quot;Calinski-Harabász Index&quot;</span>, <span class="at">side=</span><span class="dv">4</span>, <span class="at">line=</span><span class="dv">3</span>) <span class="co">#nombre de calinski - harabaz</span></span>
+<span id="cb20-44"><a href="#cb20-44" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">2</span>)<span class="sc">+</span>.<span class="dv">1</span>)</span>
+<span id="cb20-45"><a href="#cb20-45" tabindex="-1"></a><span class="cf">if</span>(detallado <span class="sc">==</span> <span class="cn">TRUE</span>)</span>
+<span id="cb20-46"><a href="#cb20-46" tabindex="-1"></a>{</span>
+<span id="cb20-47"><a href="#cb20-47" tabindex="-1"></a> <span class="fu">return</span>(mejores[index<span class="sc">$</span>max<span class="sc">==</span><span class="st">&quot;*&quot;</span>])         </span>
+<span id="cb20-48"><a href="#cb20-48" tabindex="-1"></a>}</span>
+<span id="cb20-49"><a href="#cb20-49" tabindex="-1"></a> <span class="fu">return</span>(index)</span>
+<span id="cb20-50"><a href="#cb20-50" tabindex="-1"></a>}</span></code></pre></div>
+<p>Aplicando la funcion a la data para hallar los mejores del 1 al
+10</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="fu">Kmeans_mult</span>(iris[,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>],<span class="dv">10</span>,<span class="dv">10</span>)</span></code></pre></div>
+<p><img src="tarea_8_files/figure-html/unnamed-chunk-11-1.png" width="768" /></p>
+<pre><code>##          SSW         D         D2       CH max
+## 1  681.37060   0.00000 -529.02265   0.0000    
+## 2  152.34795 529.02265  455.52614 513.9245    
+## 3   78.85144  73.49651   51.87354 561.6278   *
+## 4   57.22847  21.62297   10.84068 530.7658    
+## 5   46.44618  10.78229    3.37610 495.5415    
+## 6   39.03999   7.40619    5.20334 473.8506    
+## 7   36.83714   2.20285   -4.64534 417.0080    
+## 8   29.98894   6.84819    4.64534 440.6205   *
+## 9   27.78609   2.20285    3.81871 414.5753    
+## 10  29.40195  -1.61586    0.00000 344.9341</code></pre>
+<p>Hallando el detallado</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="fu">Kmeans_mult</span>(iris[,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>],<span class="dv">10</span>,<span class="dv">10</span>,<span class="at">detallado =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="tarea_8_files/figure-html/unnamed-chunk-12-1.png" width="768" /></p>
+<pre><code>## [[1]]
+##   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20 
+##   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1 
+##  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40 
+##   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1 
+##  41  42  43  44  45  46  47  48  49  50  51  52  53  54  55  56  57  58  59  60 
+##   1   1   1   1   1   1   1   1   1   1   3   2   3   3   3   3   2   3   3   3 
+##  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76  77  78  79  80 
+##   3   3   3   2   2   3   3   3   3   2   3   2   3   2   3   3   2   2   3   3 
+##  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97  98  99 100 
+##   3   3   3   2   3   3   3   3   2   3   3   3   2   3   3   3   2   3   3   2 
+## 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 
+##   2   2   3   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2 
+## 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 
+##   2   2   2   2   2   2   2   3   2   2   2   2   2   2   2   2   2   2   2   2 
+## 141 142 143 144 145 146 147 148 149 150 
+##   2   2   2   2   2   2   2   2   2   2 
+## 
+## [[2]]
+##   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20 
+##   3   2   2   2   3   3   2   3   2   2   3   2   2   2   3   3   3   3   3   3 
+##  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40 
+##   3   3   2   3   2   2   3   3   3   2   2   3   3   3   2   2   3   3   2   3 
+##  41  42  43  44  45  46  47  48  49  50  51  52  53  54  55  56  57  58  59  60 
+##   3   2   2   3   3   2   3   2   3   2   5   4   1   5   5   1   7   1   5   1 
+##  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76  77  78  79  80 
+##   5   4   5   4   4   5   5   1   1   4   5   4   1   4   5   1   4   4   5   1 
+##  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97  98  99 100 
+##   1   1   5   4   4   1   5   5   4   5   5   5   4   5   5   5   4   5   5   4 
+## 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 
+##   6   6   6   7   6   7   6   7   6   7   7   7   7   6   7   6   7   7   4   7 
+## 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 
+##   4   7   4   6   6   6   6   6   6   7   7   7   7   4   7   6   6   6   7   7 
+## 141 142 143 144 145 146 147 148 149 150 
+##   7   6   7   7   7   7   7   6   7   7</code></pre>
+</div>
+<div id="problema-6" class="section level2">
+<h2>Problema 6</h2>
+<p>Estandarizar los datos de Iris, empleando el comando scale(X,
+center=TRUE,scale=TRUE), con X el archivo Iris, limitadamente a las
+cuatro mediciones, y re-correr el k-means.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a>iris[,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>] <span class="ot">&lt;-</span> <span class="fu">scale</span>(iris[,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>], <span class="at">center=</span><span class="cn">TRUE</span>,<span class="at">scale=</span><span class="cn">TRUE</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a><span class="co">#cl2 &lt;- kmeans(iris[,1:4],3 , nstart = 10,trace = FALSE)  # un 10 recorridos </span></span>
+<span id="cb25-3"><a href="#cb25-3" tabindex="-1"></a><span class="co">#saveRDS(cl2, &quot;modelo2.rds&quot;)# Guardar modelo</span></span>
+<span id="cb25-4"><a href="#cb25-4" tabindex="-1"></a>(cl2 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;modelo2.rds&quot;</span>))<span class="co"># Cargar modelo</span></span></code></pre></div>
+<pre><code>## K-means clustering with 3 clusters of sizes 47, 50, 53
+## 
+## Cluster means:
+##   Sepal.length Sepal.width Petal.length Petal.width
+## 1   1.13217737  0.08812645    0.9928284   1.0141287
+## 2  -1.01119138  0.85041372   -1.3006301  -1.2507035
+## 3  -0.05005221 -0.88042696    0.3465767   0.2805873
+## 
+## Clustering vector:
+##   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20 
+##   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2 
+##  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40 
+##   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2 
+##  41  42  43  44  45  46  47  48  49  50  51  52  53  54  55  56  57  58  59  60 
+##   2   2   2   2   2   2   2   2   2   2   1   3   1   1   1   1   3   1   1   1 
+##  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76  77  78  79  80 
+##   1   1   1   3   3   1   1   1   1   3   1   3   1   3   1   1   3   1   1   1 
+##  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97  98  99 100 
+##   1   1   1   3   3   1   1   1   3   1   1   1   3   1   1   1   3   1   1   3 
+## 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 
+##   1   1   1   3   3   3   1   3   3   3   3   3   3   3   3   1   3   3   3   3 
+## 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 
+##   1   3   3   3   3   1   1   1   3   3   3   3   3   3   3   1   1   3   3   3 
+## 141 142 143 144 145 146 147 148 149 150 
+##   3   3   3   3   3   3   3   3   3   3 
+## 
+## Within cluster sum of squares by cluster:
+## [1] 47.45019 47.35062 44.08754
+##  (between_SS / total_SS =  76.7 %)
+## 
+## Available components:
+## 
+## [1] &quot;cluster&quot;      &quot;centers&quot;      &quot;totss&quot;        &quot;withinss&quot;     &quot;tot.withinss&quot;
+## [6] &quot;betweenss&quot;    &quot;size&quot;         &quot;iter&quot;         &quot;ifault&quot;</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="fu">plot</span>(iris[,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>], <span class="at">col =</span> cl<span class="sc">$</span>cluster, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">cex=</span>.<span class="dv">5</span>,<span class="at">main=</span><span class="st">&quot;solo 10 recorridos&quot;</span>)  <span class="co"># plot    </span></span>
+<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a><span class="fu">points</span>(cl2<span class="sc">$</span>centers, <span class="at">col =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">pch =</span> <span class="dv">8</span>)</span></code></pre></div>
+<p><img src="tarea_8_files/figure-html/unnamed-chunk-13-1.png" width="768" /></p>
+</div>
+<div id="problema-7" class="section level2">
+<h2>Problema 7</h2>
+<p>¿Se encuentran resultados mejores o peores? (para el breakdown, solo
+emplear la clasificación salida, pero siempre las mediciones de
+Iris).</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a>cluster <span class="ot">&lt;-</span><span class="fu">factor</span>(cl2<span class="sc">$</span>cluster, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;setosa&quot;</span>,<span class="st">&quot;virginica&quot;</span>,<span class="st">&quot;versicolor&quot;</span>), <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>))</span>
+<span id="cb28-2"><a href="#cb28-2" tabindex="-1"></a>log <span class="ot">&lt;-</span> iris[<span class="sc">!</span>cluster <span class="sc">==</span> iris[[<span class="dv">5</span>]],]</span>
+<span id="cb28-3"><a href="#cb28-3" tabindex="-1"></a><span class="fu">nrow</span>(log)</span></code></pre></div>
+<pre><code>## [1] 25</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a>iris_test <span class="ot">&lt;-</span> <span class="fu">cbind</span>(iris[,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>],cluster)</span></code></pre></div>
+<p>Hay 25 flores que estan mal clasificadas lo cual ha empeorado
+relativamente poco <br> tabla breakdown</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a><span class="fu">break_total</span>(iris_test)</span></code></pre></div>
+<pre><code>## La tabla breakdown por columna es</code></pre>
+<pre><code>## $Sepal.length
+##            setosa  virginica  versicolor         Total
+## n_unit 50.0000000 47.0000000 53.00000000  1.500000e+02
+## mean   -1.0111914  1.1321774 -0.05005221 -4.482842e-16
+## var     0.1812019  0.3510494  0.23978563  9.933333e-01
+## stdev   0.4256782  0.5924942  0.48967911  9.966611e-01
+## cv     -0.4209670  0.5233228 -9.78336605 -2.223280e+15
+## 
+## $Sepal.width
+##            setosa   virginica versicolor        Total
+## n_unit 50.0000000 47.00000000 53.0000000 1.500000e+02
+## mean    0.8504137  0.08812645 -0.8804270 2.031437e-16
+## var     0.7563440  0.36149785  0.3404234 9.933333e-01
+## stdev   0.8696804  0.60124691  0.5834581 9.966611e-01
+## cv      1.0226557  6.82254787 -0.6626991 4.906187e+15
+## 
+## $Petal.length
+##              setosa  virginica versicolor         Total
+## n_unit 50.000000000 47.0000000 53.0000000  1.500000e+02
+## mean   -1.300630090  0.9928284  0.3465767 -2.876578e-17
+## var     0.009677951  0.1306232  0.1007841  9.933333e-01
+## stdev   0.098376576  0.3614184  0.3174650  9.966611e-01
+## cv     -0.075637629  0.3640290  0.9160021 -3.464745e+16
+## 
+## $Petal.width
+##             setosa  virginica versicolor         Total
+## n_unit 50.00000000 47.0000000 53.0000000  1.500000e+02
+## mean   -1.25070352  1.0141287  0.2805873 -3.684643e-17
+## var     0.01911532  0.1883555  0.1668443  9.933333e-01
+## stdev   0.13825818  0.4339994  0.4084658  9.966611e-01
+## cv     -0.11054432  0.4279530  1.4557530 -2.704905e+16</code></pre>
+</div>
+<div id="problema-8" class="section level2">
+<h2>Problema 8</h2>
+<p>Hacer lo mismo con datos de Linnerud, pero intentando diferentes
+clasificaciones y el índice CH, tanto para los datos brutos, como para
+los estandarizados.<br> Importamos la data</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" tabindex="-1"></a>linne <span class="ot">&lt;-</span>  <span class="fu">read.table</span>(</span>
+<span id="cb34-2"><a href="#cb34-2" tabindex="-1"></a>          <span class="at">file =</span> <span class="st">&quot;Linnerud.csv&quot;</span>,</span>
+<span id="cb34-3"><a href="#cb34-3" tabindex="-1"></a>          <span class="at">header =</span> T,</span>
+<span id="cb34-4"><a href="#cb34-4" tabindex="-1"></a>          <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>,</span>
+<span id="cb34-5"><a href="#cb34-5" tabindex="-1"></a>          <span class="at">dec =</span> <span class="st">&quot;.&quot;</span>,</span>
+<span id="cb34-6"><a href="#cb34-6" tabindex="-1"></a>          <span class="at">stringsAsFactors =</span> F,</span>
+<span id="cb34-7"><a href="#cb34-7" tabindex="-1"></a>          <span class="at">row.names =</span> <span class="dv">1</span></span>
+<span id="cb34-8"><a href="#cb34-8" tabindex="-1"></a>); <span class="fu">summary</span>(linne) <span class="co">#importamos el .csv</span></span></code></pre></div>
+<pre><code>##       Peso          Cintura      Pulsaciones    Lanzamientos     Flexiones    
+##  Min.   :138.0   Min.   :31.0   Min.   :46.0   Min.   : 1.00   Min.   : 50.0  
+##  1st Qu.:160.8   1st Qu.:33.0   1st Qu.:51.5   1st Qu.: 4.75   1st Qu.:101.0  
+##  Median :176.0   Median :35.0   Median :55.0   Median :11.50   Median :122.5  
+##  Mean   :178.6   Mean   :35.4   Mean   :56.1   Mean   : 9.45   Mean   :145.6  
+##  3rd Qu.:191.5   3rd Qu.:37.0   3rd Qu.:60.5   3rd Qu.:13.25   3rd Qu.:210.0  
+##  Max.   :247.0   Max.   :46.0   Max.   :74.0   Max.   :17.00   Max.   :251.0  
+##      Saltos      
+##  Min.   : 25.00  
+##  1st Qu.: 39.50  
+##  Median : 54.00  
+##  Mean   : 70.30  
+##  3rd Qu.: 85.25  
+##  Max.   :250.00</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" tabindex="-1"></a>linne<span class="sc">$</span>fisico <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="fu">nrow</span>(linne))</span>
+<span id="cb36-2"><a href="#cb36-2" tabindex="-1"></a>linne_std <span class="ot">&lt;-</span> <span class="fu">scale</span>(linne[,<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>],<span class="at">center=</span><span class="cn">TRUE</span>,<span class="at">scale=</span><span class="cn">TRUE</span>); <span class="fu">summary</span>(linne_std)</span></code></pre></div>
+<pre><code>##       Peso            Cintura         Pulsaciones       Lanzamientos    
+##  Min.   :-1.6444   Min.   :-1.3742   Min.   :-1.4008   Min.   :-1.5985  
+##  1st Qu.:-0.7229   1st Qu.:-0.7495   1st Qu.:-0.6380   1st Qu.:-0.8891  
+##  Median :-0.1053   Median :-0.1249   Median :-0.1526   Median : 0.3878  
+##  Mean   : 0.0000   Mean   : 0.0000   Mean   : 0.0000   Mean   : 0.0000  
+##  3rd Qu.: 0.5225   3rd Qu.: 0.4997   3rd Qu.: 0.6102   3rd Qu.: 0.7188  
+##  Max.   : 2.7703   Max.   : 3.3105   Max.   : 2.4825   Max.   : 1.4282  
+##    Flexiones           Saltos       
+##  Min.   :-1.5272   Min.   :-0.8834  
+##  1st Qu.:-0.7120   1st Qu.:-0.6007  
+##  Median :-0.3684   Median :-0.3179  
+##  Mean   : 0.0000   Mean   : 0.0000  
+##  3rd Qu.: 1.0301   3rd Qu.: 0.2916  
+##  Max.   : 1.6854   Max.   : 3.5045</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" tabindex="-1"></a>linne_std <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(linne_std)</span>
+<span id="cb38-2"><a href="#cb38-2" tabindex="-1"></a>linne_std<span class="sc">$</span>fisico <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="fu">nrow</span>(linne))</span></code></pre></div>
+<p>haciendo clasificaciones</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" tabindex="-1"></a><span class="fu">dim</span>(linne)[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] 20</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" tabindex="-1"></a><span class="fu">Kmeans_mult</span>(linne,<span class="dv">5</span>,<span class="dv">10</span>)</span></code></pre></div>
+<p><img src="tarea_8_files/figure-html/unnamed-chunk-17-1.png" width="768" /></p>
+<pre><code>##         SSW         D        D2       CH max
+## 1 137631.50     0.000 -80471.85  0.00000    
+## 2  57159.65 80471.852  56825.89 25.34119    
+## 3  33513.68 23645.967  12940.84 26.40717    
+## 4  22808.56 10705.126   4861.18 26.84909   *
+## 5  16964.61  5843.946      0.00 26.67322</code></pre>
+<p>Vemos que para 4 tiene una mejor clasificacion, como hay poca
+informacion en la data los indices de Calinski son bajo, Veamos como se
+ve esta clasificacion</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" tabindex="-1"></a><span class="co">#cl3 &lt;- Kmeans_mult(linne,5,10,detallado = TRUE)  # un 10 recorridos </span></span>
+<span id="cb43-2"><a href="#cb43-2" tabindex="-1"></a><span class="co">#saveRDS(cl3, &quot;modelo3.rds&quot;)# Guardar modelo</span></span>
+<span id="cb43-3"><a href="#cb43-3" tabindex="-1"></a>(cl3 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;modelo3.rds&quot;</span>))<span class="co"># Cargar modelo</span></span></code></pre></div>
+<pre><code>## [[1]]
+##  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 
+##  4  4  4  4  4  4  1  4  3  2  4  3  3  1  1  3  1  3  3  4</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" tabindex="-1"></a>linne <span class="ot">&lt;-</span> <span class="fu">cbind</span>(linne[,<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>],cl3)</span>
+<span id="cb45-2"><a href="#cb45-2" tabindex="-1"></a><span class="fu">names</span>(linne)[<span class="dv">7</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Fisico&quot;</span></span>
+<span id="cb45-3"><a href="#cb45-3" tabindex="-1"></a>linne</span></code></pre></div>
+<pre><code>##    Peso Cintura Pulsaciones Lanzamientos Flexiones Saltos Fisico
+## 1   191      36          50            5       162     60      4
+## 2   189      37          52            2       110     60      4
+## 3   193      38          58           12       101    101      4
+## 4   162      35          62           12       105     37      4
+## 5   189      35          46           13       155     58      4
+## 6   182      36          56            4       101     42      4
+## 7   211      38          56            8       101     38      1
+## 8   167      34          60            6       125     40      4
+## 9   176      31          74           15       200     40      3
+## 10  154      33          56           17       251    250      2
+## 11  169      34          50           17       120     38      4
+## 12  166      33          52           13       210    115      3
+## 13  154      34          64           14       215    105      3
+## 14  247      46          50            1        50     50      1
+## 15  193      36          46            6        70     31      1
+## 16  202      37          62           12       210    120      3
+## 17  176      37          54            4        60     25      1
+## 18  157      32          52           11       230     80      3
+## 19  156      33          54           15       225     73      3
+## 20  138      33          68            2       110     43      4</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" tabindex="-1"></a><span class="fu">table</span>(linne<span class="sc">$</span>Fisico)</span></code></pre></div>
+<pre><code>## 
+## 1 2 3 4 
+## 4 1 6 9</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" tabindex="-1"></a>linne<span class="sc">$</span>Fisico <span class="ot">&lt;-</span> <span class="fu">factor</span>(linne<span class="sc">$</span>Fisico,<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;muy sobresaliente&quot;</span>,<span class="st">&quot;bajo rendimiento&quot;</span>,<span class="st">&quot;alto rendimiento&quot;</span>,<span class="st">&quot;regular&quot;</span>), <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>))</span>
+<span id="cb49-2"><a href="#cb49-2" tabindex="-1"></a><span class="fu">plot</span>(linne[,<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>], <span class="at">col =</span> linne<span class="sc">$</span>Fisico, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">cex=</span>.<span class="dv">5</span>,<span class="at">main=</span><span class="st">&quot;solo 10 recorridos&quot;</span>)  <span class="co"># plot    </span></span></code></pre></div>
+<p><img src="tarea_8_files/figure-html/unnamed-chunk-18-1.png" width="768" />
+tabla breakdown</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" tabindex="-1"></a><span class="fu">break_total</span>(linne)</span></code></pre></div>
+<pre><code>## La tabla breakdown por columna es</code></pre>
+<pre><code>## $Peso
+##        muy sobresaliente bajo rendimiento alto rendimiento     regular
+## n_unit         6.0000000        4.0000000                1   9.0000000
+## mean         168.5000000      206.7500000              154 175.5555556
+## var          336.7000000      924.2500000               NA 332.0277778
+## stdev         18.3493869       30.4014802               NA  18.2216294
+## cv             0.1088984        0.1470446               NA   0.1037941
+##              Total
+## n_unit  20.0000000
+## mean   178.6000000
+## var    579.1400000
+## stdev   24.0653278
+## cv       0.1347443
+## 
+## $Cintura
+##        muy sobresaliente bajo rendimiento alto rendimiento     regular
+## n_unit        6.00000000        4.0000000                1  9.00000000
+## mean         33.33333333       39.2500000               33 35.33333333
+## var           4.26666667       20.9166667               NA  2.50000000
+## stdev         2.06559112        4.5734742               NA  1.58113883
+## cv            0.06196773        0.1165216               NA  0.04474921
+##              Total
+## n_unit 20.00000000
+## mean   35.40000000
+## var     9.74000000
+## stdev   3.12089731
+## cv      0.08816094
+## 
+## $Pulsaciones
+##        muy sobresaliente bajo rendimiento alto rendimiento    regular
+## n_unit         6.0000000        4.0000000                1  9.0000000
+## mean          59.6666667       51.5000000               56 55.7777778
+## var           75.8666667       19.6666667               NA 48.4444444
+## stdev          8.7101473        4.4347116               NA  6.9602043
+## cv             0.1459801        0.0861109               NA  0.1247845
+##             Total
+## n_unit 20.0000000
+## mean   56.1000000
+## var    49.3900000
+## stdev   7.0278019
+## cv      0.1252728
+## 
+## $Lanzamientos
+##        muy sobresaliente bajo rendimiento alto rendimiento    regular
+## n_unit         6.0000000        4.0000000                1  9.0000000
+## mean          13.3333333        4.7500000               17  8.1111111
+## var            2.6666667        8.9166667               NA 29.8611111
+## stdev          1.6329932        2.9860788               NA  5.4645321
+## cv             0.1224745        0.6286482               NA  0.6737094
+##             Total
+## n_unit 20.0000000
+## mean    9.4500000
+## var    26.5475000
+## stdev   5.1524266
+## cv      0.5452303
+## 
+## $Flexiones
+##        muy sobresaliente bajo rendimiento alto rendimiento     regular
+## n_unit        6.00000000        4.0000000                1   9.0000000
+## mean        215.00000000       70.2500000              251 121.0000000
+## var         120.00000000      486.9166667               NA 519.0000000
+## stdev        10.95445115       22.0661883               NA  22.7815715
+## cv            0.05095094        0.3141094               NA   0.1882775
+##               Total
+## n_unit   20.0000000
+## mean    145.5500000
+## var    3718.8475000
+## stdev    60.9823540
+## cv        0.4189787
+## 
+## $Saltos
+##        muy sobresaliente bajo rendimiento alto rendimiento    regular
+## n_unit         6.0000000        4.0000000                1   9.000000
+## mean          88.8333333       36.0000000              250  53.222222
+## var          926.1666667      115.3333333               NA 412.194444
+## stdev         30.4329865       10.7393358               NA  20.302572
+## cv             0.3425852        0.2983149               NA   0.381468
+##               Total
+## n_unit   20.0000000
+## mean     70.3000000
+## var    2497.9100000
+## stdev    49.9790956
+## cv        0.7109402</code></pre>
+<p>Hagamos lo mismo pero con la data estandarizada <br></p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" tabindex="-1"></a>linne_std</span></code></pre></div>
+<pre><code>##          Peso    Cintura Pulsaciones Lanzamientos  Flexiones     Saltos fisico
+## 1   0.5022173  0.1873845 -0.84600343   -0.8418021  0.2629199 -0.2008679      0
+## 2   0.4212145  0.4996919 -0.56862526   -1.4093091 -0.5681948 -0.2008679      0
+## 3   0.5832201  0.8119993  0.26350927    0.4823810 -0.7120415  0.5987035      0
+## 4  -0.6723232 -0.1249230  0.81826561    0.4823810 -0.6481096 -0.6494080      0
+## 5   0.4212145 -0.1249230 -1.40075978    0.6715500  0.1510391 -0.2398714      0
+## 6   0.1377048  0.1873845 -0.01386891   -1.0309711 -0.7120415 -0.5518993      0
+## 7   1.3122453  0.8119993 -0.01386891   -0.2742951 -0.7120415 -0.6299063      0
+## 8  -0.4698162 -0.4372304  0.54088744   -0.6526331 -0.3284501 -0.5909028      0
+## 9  -0.1053036 -1.3741527  2.48253466    1.0498880  0.8702730 -0.5909028      0
+## 10 -0.9963344 -0.7495378 -0.01386891    1.4282260  1.6854047  3.5044631      0
+## 11 -0.3888134 -0.4372304 -0.84600343    1.4282260 -0.4083650 -0.6299063      0
+## 12 -0.5103176 -0.7495378 -0.56862526    0.6715500  1.0301027  0.8717279      0
+## 13 -0.9963344 -0.4372304  1.09564379    0.8607190  1.1100176  0.6767105      0
+## 14  2.7702957  3.3104588 -0.84600343   -1.5984781 -1.5271733 -0.3958854      0
+## 15  0.5832201  0.1873845 -1.40075978   -0.6526331 -1.2075138 -0.7664185      0
+## 16  0.9477327  0.4996919  0.81826561    0.4823810  1.0301027  0.9692366      0
+## 17 -0.1053036  0.4996919 -0.29124708   -1.0309711 -1.3673435 -0.8834289      0
+## 18 -0.8748302 -1.0618453 -0.56862526    0.2932120  1.3497622  0.1891669      0
+## 19 -0.9153316 -0.7495378 -0.29124708    1.0498880  1.2698474  0.0526547      0
+## 20 -1.6443568 -0.7495378  1.65040014   -1.4093091 -0.5681948 -0.5323976      0</code></pre>
+<p>haciendo clasificaciones</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" tabindex="-1"></a><span class="fu">dim</span>(linne_std)[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] 20</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" tabindex="-1"></a><span class="fu">Kmeans_mult</span>(linne_std[,<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>],<span class="dv">5</span>,<span class="dv">10</span>)</span></code></pre></div>
+<p><img src="tarea_8_files/figure-html/unnamed-chunk-21-1.png" width="768" /></p>
+<pre><code>##         SSW        D        D2      CH max
+## 1 114.00000  0.00000 -39.30449 0.00000    
+## 2  74.69551 39.30449  20.55965 9.47153   *
+## 3  55.95066 18.74484   5.80463 8.81883    
+## 4  43.01045 12.94021   5.00326 8.80277    
+## 5  35.07350  7.93695   0.00000 8.43869</code></pre>
+<p>Vemos que con dos clasificaciones tiene buen agrupamiento</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" tabindex="-1"></a><span class="co">#cl4 &lt;- Kmeans_mult(linne_std[,1:6],5,10,detallado = TRUE)  # un 20 recorridos </span></span>
+<span id="cb59-2"><a href="#cb59-2" tabindex="-1"></a><span class="co">#saveRDS(cl4, &quot;modelo4.rds&quot;)# Guardar modelo</span></span>
+<span id="cb59-3"><a href="#cb59-3" tabindex="-1"></a>(cl4 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;modelo4.rds&quot;</span>))<span class="co"># Cargar modelo</span></span></code></pre></div>
+<pre><code>## [[1]]
+##  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 
+##  1  1  1  2  1  1  1  2  2  2  2  2  2  1  1  2  1  2  2  2</code></pre>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" tabindex="-1"></a>linne_std <span class="ot">&lt;-</span> <span class="fu">cbind</span>(linne[,<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>],cl4)</span>
+<span id="cb61-2"><a href="#cb61-2" tabindex="-1"></a><span class="fu">names</span>(linne_std)[<span class="dv">7</span>] <span class="ot">&lt;-</span> <span class="st">&quot;fisico&quot;</span></span>
+<span id="cb61-3"><a href="#cb61-3" tabindex="-1"></a>linne_std</span></code></pre></div>
+<pre><code>##    Peso Cintura Pulsaciones Lanzamientos Flexiones Saltos fisico
+## 1   191      36          50            5       162     60      1
+## 2   189      37          52            2       110     60      1
+## 3   193      38          58           12       101    101      1
+## 4   162      35          62           12       105     37      2
+## 5   189      35          46           13       155     58      1
+## 6   182      36          56            4       101     42      1
+## 7   211      38          56            8       101     38      1
+## 8   167      34          60            6       125     40      2
+## 9   176      31          74           15       200     40      2
+## 10  154      33          56           17       251    250      2
+## 11  169      34          50           17       120     38      2
+## 12  166      33          52           13       210    115      2
+## 13  154      34          64           14       215    105      2
+## 14  247      46          50            1        50     50      1
+## 15  193      36          46            6        70     31      1
+## 16  202      37          62           12       210    120      2
+## 17  176      37          54            4        60     25      1
+## 18  157      32          52           11       230     80      2
+## 19  156      33          54           15       225     73      2
+## 20  138      33          68            2       110     43      2</code></pre>
+<p>Dandole forma a la data</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" tabindex="-1"></a>linne_std<span class="sc">$</span>fisico <span class="ot">&lt;-</span> <span class="fu">factor</span>(linne_std<span class="sc">$</span>fisico,<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;bajo_rendimiento&quot;</span>,<span class="st">&quot;alto_rendimiento&quot;</span>), <span class="at">levels =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span>
+<span id="cb63-2"><a href="#cb63-2" tabindex="-1"></a>linne_std</span></code></pre></div>
+<pre><code>##    Peso Cintura Pulsaciones Lanzamientos Flexiones Saltos           fisico
+## 1   191      36          50            5       162     60 bajo_rendimiento
+## 2   189      37          52            2       110     60 bajo_rendimiento
+## 3   193      38          58           12       101    101 bajo_rendimiento
+## 4   162      35          62           12       105     37 alto_rendimiento
+## 5   189      35          46           13       155     58 bajo_rendimiento
+## 6   182      36          56            4       101     42 bajo_rendimiento
+## 7   211      38          56            8       101     38 bajo_rendimiento
+## 8   167      34          60            6       125     40 alto_rendimiento
+## 9   176      31          74           15       200     40 alto_rendimiento
+## 10  154      33          56           17       251    250 alto_rendimiento
+## 11  169      34          50           17       120     38 alto_rendimiento
+## 12  166      33          52           13       210    115 alto_rendimiento
+## 13  154      34          64           14       215    105 alto_rendimiento
+## 14  247      46          50            1        50     50 bajo_rendimiento
+## 15  193      36          46            6        70     31 bajo_rendimiento
+## 16  202      37          62           12       210    120 alto_rendimiento
+## 17  176      37          54            4        60     25 bajo_rendimiento
+## 18  157      32          52           11       230     80 alto_rendimiento
+## 19  156      33          54           15       225     73 alto_rendimiento
+## 20  138      33          68            2       110     43 alto_rendimiento</code></pre>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" tabindex="-1"></a><span class="fu">plot</span>(linne_std[,<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>], <span class="at">col =</span> linne_std<span class="sc">$</span>fisico, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">cex=</span>.<span class="dv">5</span>,<span class="at">main=</span><span class="st">&quot;solo 10 recorridos&quot;</span>)  <span class="co"># plot </span></span></code></pre></div>
+<p><img src="tarea_8_files/figure-html/unnamed-chunk-23-1.png" width="768" />
+Haciendo una tabla breakdown</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" tabindex="-1"></a><span class="fu">break_total</span>(linne_std)</span></code></pre></div>
+<pre><code>## La tabla breakdown por columna es</code></pre>
+<pre><code>## $Peso
+##        bajo_rendimiento alto_rendimiento       Total
+## n_unit        9.0000000      11.00000000  20.0000000
+## mean        196.7777778     163.72727273 178.6000000
+## var         444.6944444     261.81818182 579.1400000
+## stdev        21.0877795      16.18079670  24.0653278
+## cv            0.1071655       0.09882774   0.1347443
+## 
+## $Cintura
+##        bajo_rendimiento alto_rendimiento       Total
+## n_unit       9.00000000      11.00000000 20.00000000
+## mean        37.66666667      33.54545455 35.40000000
+## var         10.75000000       2.47272727  9.74000000
+## stdev        3.27871926       1.57249079  3.12089731
+## cv           0.08704564       0.04687642  0.08816094
+## 
+## $Pulsaciones
+##        bajo_rendimiento alto_rendimiento      Total
+## n_unit       9.00000000       11.0000000 20.0000000
+## mean        52.00000000       59.4545455 56.1000000
+## var         19.00000000       56.0727273 49.3900000
+## stdev        4.35889894        7.4881725  7.0278019
+## cv           0.08382498        0.1259479  0.1252728
+## 
+## $Lanzamientos
+##        bajo_rendimiento alto_rendimiento      Total
+## n_unit        9.0000000       11.0000000 20.0000000
+## mean          6.1111111       12.1818182  9.4500000
+## var          17.3611111       20.9636364 26.5475000
+## stdev         4.1666667        4.5786064  5.1524266
+## cv            0.6818182        0.3758557  0.5452303
+## 
+## $Flexiones
+##        bajo_rendimiento alto_rendimiento        Total
+## n_unit        9.0000000       11.0000000   20.0000000
+## mean        101.1111111      181.9090909  145.5500000
+## var        1495.1111111     3010.0909091 3718.8475000
+## stdev        38.6666667       54.8642954   60.9823540
+## cv            0.3824176        0.3016028    0.4189787
+## 
+## $Saltos
+##        bajo_rendimiento alto_rendimiento        Total
+## n_unit        9.0000000       11.0000000   20.0000000
+## mean         51.6666667       85.5454545   70.3000000
+## var         504.2500000     4024.2727273 2497.9100000
+## stdev        22.4555116       63.4371557   49.9790956
+## cv            0.4346228        0.7415608    0.7109402</code></pre>
+</div>
+<div id="problema-9" class="section level2">
+<h2>Problema 9</h2>
+<p>¿Cual clasificación le parece mejor?</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" tabindex="-1"></a><span class="fu">break_total</span>(linne_std)</span></code></pre></div>
+<pre><code>## La tabla breakdown por columna es</code></pre>
+<pre><code>## $Peso
+##        bajo_rendimiento alto_rendimiento       Total
+## n_unit        9.0000000      11.00000000  20.0000000
+## mean        196.7777778     163.72727273 178.6000000
+## var         444.6944444     261.81818182 579.1400000
+## stdev        21.0877795      16.18079670  24.0653278
+## cv            0.1071655       0.09882774   0.1347443
+## 
+## $Cintura
+##        bajo_rendimiento alto_rendimiento       Total
+## n_unit       9.00000000      11.00000000 20.00000000
+## mean        37.66666667      33.54545455 35.40000000
+## var         10.75000000       2.47272727  9.74000000
+## stdev        3.27871926       1.57249079  3.12089731
+## cv           0.08704564       0.04687642  0.08816094
+## 
+## $Pulsaciones
+##        bajo_rendimiento alto_rendimiento      Total
+## n_unit       9.00000000       11.0000000 20.0000000
+## mean        52.00000000       59.4545455 56.1000000
+## var         19.00000000       56.0727273 49.3900000
+## stdev        4.35889894        7.4881725  7.0278019
+## cv           0.08382498        0.1259479  0.1252728
+## 
+## $Lanzamientos
+##        bajo_rendimiento alto_rendimiento      Total
+## n_unit        9.0000000       11.0000000 20.0000000
+## mean          6.1111111       12.1818182  9.4500000
+## var          17.3611111       20.9636364 26.5475000
+## stdev         4.1666667        4.5786064  5.1524266
+## cv            0.6818182        0.3758557  0.5452303
+## 
+## $Flexiones
+##        bajo_rendimiento alto_rendimiento        Total
+## n_unit        9.0000000       11.0000000   20.0000000
+## mean        101.1111111      181.9090909  145.5500000
+## var        1495.1111111     3010.0909091 3718.8475000
+## stdev        38.6666667       54.8642954   60.9823540
+## cv            0.3824176        0.3016028    0.4189787
+## 
+## $Saltos
+##        bajo_rendimiento alto_rendimiento        Total
+## n_unit        9.0000000       11.0000000   20.0000000
+## mean         51.6666667       85.5454545   70.3000000
+## var         504.2500000     4024.2727273 2497.9100000
+## stdev        22.4555116       63.4371557   49.9790956
+## cv            0.4346228        0.7415608    0.7109402</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" tabindex="-1"></a><span class="fu">break_total</span>(linne)</span></code></pre></div>
+<pre><code>## La tabla breakdown por columna es</code></pre>
+<pre><code>## $Peso
+##        muy sobresaliente bajo rendimiento alto rendimiento     regular
+## n_unit         6.0000000        4.0000000                1   9.0000000
+## mean         168.5000000      206.7500000              154 175.5555556
+## var          336.7000000      924.2500000               NA 332.0277778
+## stdev         18.3493869       30.4014802               NA  18.2216294
+## cv             0.1088984        0.1470446               NA   0.1037941
+##              Total
+## n_unit  20.0000000
+## mean   178.6000000
+## var    579.1400000
+## stdev   24.0653278
+## cv       0.1347443
+## 
+## $Cintura
+##        muy sobresaliente bajo rendimiento alto rendimiento     regular
+## n_unit        6.00000000        4.0000000                1  9.00000000
+## mean         33.33333333       39.2500000               33 35.33333333
+## var           4.26666667       20.9166667               NA  2.50000000
+## stdev         2.06559112        4.5734742               NA  1.58113883
+## cv            0.06196773        0.1165216               NA  0.04474921
+##              Total
+## n_unit 20.00000000
+## mean   35.40000000
+## var     9.74000000
+## stdev   3.12089731
+## cv      0.08816094
+## 
+## $Pulsaciones
+##        muy sobresaliente bajo rendimiento alto rendimiento    regular
+## n_unit         6.0000000        4.0000000                1  9.0000000
+## mean          59.6666667       51.5000000               56 55.7777778
+## var           75.8666667       19.6666667               NA 48.4444444
+## stdev          8.7101473        4.4347116               NA  6.9602043
+## cv             0.1459801        0.0861109               NA  0.1247845
+##             Total
+## n_unit 20.0000000
+## mean   56.1000000
+## var    49.3900000
+## stdev   7.0278019
+## cv      0.1252728
+## 
+## $Lanzamientos
+##        muy sobresaliente bajo rendimiento alto rendimiento    regular
+## n_unit         6.0000000        4.0000000                1  9.0000000
+## mean          13.3333333        4.7500000               17  8.1111111
+## var            2.6666667        8.9166667               NA 29.8611111
+## stdev          1.6329932        2.9860788               NA  5.4645321
+## cv             0.1224745        0.6286482               NA  0.6737094
+##             Total
+## n_unit 20.0000000
+## mean    9.4500000
+## var    26.5475000
+## stdev   5.1524266
+## cv      0.5452303
+## 
+## $Flexiones
+##        muy sobresaliente bajo rendimiento alto rendimiento     regular
+## n_unit        6.00000000        4.0000000                1   9.0000000
+## mean        215.00000000       70.2500000              251 121.0000000
+## var         120.00000000      486.9166667               NA 519.0000000
+## stdev        10.95445115       22.0661883               NA  22.7815715
+## cv            0.05095094        0.3141094               NA   0.1882775
+##               Total
+## n_unit   20.0000000
+## mean    145.5500000
+## var    3718.8475000
+## stdev    60.9823540
+## cv        0.4189787
+## 
+## $Saltos
+##        muy sobresaliente bajo rendimiento alto rendimiento    regular
+## n_unit         6.0000000        4.0000000                1   9.000000
+## mean          88.8333333       36.0000000              250  53.222222
+## var          926.1666667      115.3333333               NA 412.194444
+## stdev         30.4329865       10.7393358               NA  20.302572
+## cv             0.3425852        0.2983149               NA   0.381468
+##               Total
+## n_unit   20.0000000
+## mean     70.3000000
+## var    2497.9100000
+## stdev    49.9790956
+## cv        0.7109402</code></pre>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" tabindex="-1"></a>(linne_comparacion <span class="ot">&lt;-</span> <span class="fu">cbind</span>(linne,linne_std<span class="sc">$</span>fisico))</span></code></pre></div>
+<pre><code>##    Peso Cintura Pulsaciones Lanzamientos Flexiones Saltos            Fisico
+## 1   191      36          50            5       162     60           regular
+## 2   189      37          52            2       110     60           regular
+## 3   193      38          58           12       101    101           regular
+## 4   162      35          62           12       105     37           regular
+## 5   189      35          46           13       155     58           regular
+## 6   182      36          56            4       101     42           regular
+## 7   211      38          56            8       101     38  bajo rendimiento
+## 8   167      34          60            6       125     40           regular
+## 9   176      31          74           15       200     40 muy sobresaliente
+## 10  154      33          56           17       251    250  alto rendimiento
+## 11  169      34          50           17       120     38           regular
+## 12  166      33          52           13       210    115 muy sobresaliente
+## 13  154      34          64           14       215    105 muy sobresaliente
+## 14  247      46          50            1        50     50  bajo rendimiento
+## 15  193      36          46            6        70     31  bajo rendimiento
+## 16  202      37          62           12       210    120 muy sobresaliente
+## 17  176      37          54            4        60     25  bajo rendimiento
+## 18  157      32          52           11       230     80 muy sobresaliente
+## 19  156      33          54           15       225     73 muy sobresaliente
+## 20  138      33          68            2       110     43           regular
+##    linne_std$fisico
+## 1  bajo_rendimiento
+## 2  bajo_rendimiento
+## 3  bajo_rendimiento
+## 4  alto_rendimiento
+## 5  bajo_rendimiento
+## 6  bajo_rendimiento
+## 7  bajo_rendimiento
+## 8  alto_rendimiento
+## 9  alto_rendimiento
+## 10 alto_rendimiento
+## 11 alto_rendimiento
+## 12 alto_rendimiento
+## 13 alto_rendimiento
+## 14 bajo_rendimiento
+## 15 bajo_rendimiento
+## 16 alto_rendimiento
+## 17 bajo_rendimiento
+## 18 alto_rendimiento
+## 19 alto_rendimiento
+## 20 alto_rendimiento</code></pre>
+<p>Ligeramente mejor es estandarizado</p>
+</div>
+</div>
+</div>
+
+   
+   
+            
+      
+
+  <script>
+    $(document).ready(function () {
+
+			
+ 		
+	    });
+  </script>
+
+
+
+    <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+	var script = document.createElement("script");
+	script.type = "text/javascript";
+	script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+	document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+  
+</body>
+</html>
