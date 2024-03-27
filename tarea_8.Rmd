@@ -22,7 +22,7 @@ cat("ok")
 Con los datos de Iris, correr la clasificación k-means con 3 grupos.
 ```{r}
 set.seed(123)
-setwd("D:/accesos rapidos/Documentos/R/Clase VIII")
+setwd("~/R/Clase VIII/git")
 iris <-read.table(
           file = "Iris.csv",
           header = T,
